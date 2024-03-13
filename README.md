@@ -1,8 +1,10 @@
-# React + Vite
+# Proyecto 1 Bases de Datos (Prueba de Concepto)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Authors: Jeremmy Aguilar & Franco Rojas
 
-Currently, two official plugins are available:
+Web Application build with Vite-React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Backend/API: https://github.com/frandev1/project1bd1-api
+
+To run the application just open the terminal on the proyect direction and install all the dependencies
+with the command 'npm install', you can run the application with 'npm run dev' to test it.

@@ -82,7 +82,14 @@ function App() {
       <h1>Empleados</h1>
       </center>
       <Grid
-        columns={['Id', 'Nombre', 'Salario']}
+        columns={['Id', 
+        'Nombre', 
+        {
+          name: 'Salario',
+          formatter: (cell) => {
+            return `$ ${cell}`;
+        }}  
+      ]}
         search={true}
         pagination={{
           enabled: true,
