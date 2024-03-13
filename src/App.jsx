@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Grid } from 'gridjs-react';
+import './App.css';
 
 const url = 'http://localhost:5000/api/empleados';
 
@@ -52,16 +53,19 @@ function App() {
           'content-type': 'application/json'
         }
       });*/
-      alert(response.result);
-      console.log(response);
-
-      if (response.result == false ) {
-        alert('Ya existe un empleado con este nombre');
-
-      } else {
-        alert('Empleado insertado correctamente');
-        setInsertarEmpleado(false); // Cierra insertar
-      }
+      response.then(res => {
+        if (res.status === 200) {
+          alert('Empleado insertado correctamente');
+          setInsertarEmpleado(false); // Cierra insertar
+          window.location.reload(); // Recarga la página
+        } else {
+          if (res.status === 400) {
+            alert('El empleado ya existe');
+          } else {
+            alert('Hubo un error al insertar el empleado. Intente de nuevo.');
+          }
+        }
+      });
     } catch (error) {
       alert('Error al insertar empleado:', error);
     }
@@ -69,7 +73,11 @@ function App() {
   };
 
   return (
+      
     <div>
+      {/*GridJS*/}
+      {!insertarEmpleado && (
+      <div>
       <center>
       <h1>Empleados</h1>
       </center>
@@ -101,22 +109,25 @@ function App() {
         }}
         style={{
           table: {
-            'borderCollapse': 'collapse',
-            'border': '1px solid #ddd',
-            'width': '100%',
+            border: '3px solid #ccc'
           },
           th: {
-            'border': '1px solid #ddd',
-            'textAlign': 'left',
+            'background-color': 'rgba(0, 0, 0, 0.1)',
+            'border-bottom': '3px solid #ccc',
+            'text-align': 'center'
           },
           td: {
-            'border': '1px solid #ddd',
-          }
+            'text-align': 'center'
+          },
         }}
       />
+      <br/>
+      <div className='Buttons'>
       <button onClick={() => window.location.reload()}>Recargar</button>
       <button onClick={() => setInsertarEmpleado(true)}>Insertar</button>
-     
+      </div>
+      </div>)}
+    
 
     {/*insertarEmpleado*/}
     {insertarEmpleado && (
