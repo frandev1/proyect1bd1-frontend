@@ -7,3 +7,12 @@
     border: none;
     margin: 2px;
   }
+
+  .FormButtons button {
+    width:100px;
+    height: 40px;
+    color:white;
+    border-radius: 10px;
+    border: none;
+    margin: 2px;
+  }

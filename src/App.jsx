@@ -139,6 +139,7 @@ function App() {
     {/*insertarEmpleado*/}
     {insertarEmpleado && (
       <div>
+        <center>
         <h2>Insertar Empleado</h2>
         <form onSubmit={onSubmit}>
           <p>Nombre: 
@@ -157,9 +158,12 @@ function App() {
           />
           </p>
           <br/>
+          <div className='FormButtons'>
           <button type='submit'>Insertar</button>
           <button onClick={() => setInsertarEmpleado(false)}>Cancelar</button>
+          </div>
         </form>
+        </center>
       </div>
     )}
     </div>
